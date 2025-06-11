@@ -1,10 +1,18 @@
 #include"options.h"
 void doSearch(int * currentPersons, Person * p){
+    char name[20];
     printf("Looking for the name: ");
+    scanf("%s",&name);
     //iterate through the pointer to show all the names
+    printf("This is the full list\n");
     for(int i = 0; i < *currentPersons; i++){
-        printf("Person number %i %s\n",i,p[i].name);
+        printf("Person number %i %s",i,p[i].name);
+        if(strcmp(p[i].name,name) == 0){
+            printf("<----This is the person\n");
+        }
+        printf("\n");
     }
+
     return;
 };
 
