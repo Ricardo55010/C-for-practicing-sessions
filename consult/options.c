@@ -1,14 +1,17 @@
 #include"options.h"
 void doSearch(int * currentPersons, Person * p){
+    numSteps++;
     char name[20];
     printf("Looking for the name: ");
     scanf("%s",&name);
     //iterate through the pointer to show all the names
     printf("This is the full list\n");
     for(int i = 0; i < *currentPersons; i++){
-        printf("Person number %i %s",i,p[i].name);
+        printf("Person number %i %s",i,(p+i)->name);
         if(strcmp(p[i].name,name) == 0){
             printf("<----This is the person\n");
+            printf("it has %d characters\n",strlen(p[i].name));
+            printf("it has %d bytes\n",sizeof(p[i].name));
         }
         printf("\n");
     }
@@ -17,6 +20,7 @@ void doSearch(int * currentPersons, Person * p){
 };
 
 void doRegister(Person * p, int* maxPersons, int* currentPersons){
+    numSteps++;
     //check if the array is full
     if(*currentPersons == *maxPersons){
         (*maxPersons) *= 2;
@@ -34,6 +38,7 @@ void doRegister(Person * p, int* maxPersons, int* currentPersons){
 };
 
 void doExit(){  
+    numSteps++;
     printf("Goodbye\n");
     return;
 }   

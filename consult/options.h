@@ -8,3 +8,4 @@ void doRegister(Person * p, int* maxPersons, int* currentPersons);
 void doSearch(int * currentPersons, Person * p);
 void doExit();
 
+extern int numSteps;

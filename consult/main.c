@@ -2,7 +2,9 @@
 #include"menu.h"
 #include"options.h"
 
+int numSteps = 0;
 int main(){
+    printf("Steps taken so far: %d\n",numSteps);
     //initilization of variables
     int option = 0;
     int maxPersons = 1;
@@ -25,6 +27,7 @@ int main(){
     }while(option!=3 && (option > 0 && option < 2)); //condition to stop the loop
     
     free(p);//release memory
+    printf("Steps taken so far: %d\n",numSteps);
     system("pause");//for windows
     return 0;
 }
