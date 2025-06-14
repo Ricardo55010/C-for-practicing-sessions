@@ -41,4 +41,10 @@ void doExit(){
     numSteps++;
     printf("Goodbye\n");
     return;
-}   
+}
+
+void doExtra(){
+    static int counter = 0;
+    printf("Counter: %d\n",counter);
+    counter ++;
+}
