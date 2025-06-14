@@ -1,8 +1,13 @@
 #include<stdio.h>
 #include"menu.h"
 #include"options.h"
-int numSteps = 0;
+#ifndef MAXSTEPS
+#define MAXSTEPS 10
+#endif
 
+enum option{REGISTER = 1,SEARCH = 2,EXIT = 3,EXTRA = 4};
+int numSteps = 0;
+const int numOptions = 4;
 int main(){
     //initilization of variables
     int option = 0;
@@ -20,24 +25,31 @@ int main(){
         printMenu();
         getOption(&option);
         switch(option){
-            case 1:
+            case REGISTER:
                 doRegister(p,&maxPersons,&currentPersons);
                 break;
-            case 2:
+            case SEARCH:
                 doSearch(&currentPersons,p);
                 break;
-            case 3:
+            case EXIT:
                 doExit();
                 break;
-            case 4:
+            case EXTRA:
                 doExtra();
                 break;
+            default:
+                printf("Invalid option\n");
+                break;
         }
-        fprintf(fp,"Steps taken so far: %d\n",numSteps);
-    }while(option!=3 && (option > 0 && option < 5)); //condition to stop the loop
+        fprintf(fp,"Actions taken so far: %d\n",numSteps);
+    }while(option!=3 && (option > 0 && option <= numOptions) && numSteps < MAXSTEPS); //condition to stop the loop
     
+    if(numSteps >= MAXSTEPS) 
+        printf("Maximum number of steps reached\n");
+
+    fclose(fp);//close file
     free(p);//release memory
-    printf("Actions taken so far: %d\n",numSteps);
+    printf("Actions taken: %d\n",numSteps);
     system("pause");//for windows
     return 0;
 }
