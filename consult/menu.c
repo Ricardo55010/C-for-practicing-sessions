@@ -8,19 +8,21 @@ inline void printMenu(){
 inline void getOption(int* option){
     scanf("%d",option);
     //based on the option, print the apporiate message
-    if(*option == 1){
-        printf("Register\n");
-    }
-    if(*option == 2){
-        printf("Search\n");
-    }
-    if(*option == 3){
-        printf("Exit\n");
-    }   
-    if(*option == 4){
-        printf("Extra\n");
-    }
-    if(*option > 4 || *option < 1){
-        printf("Invalid option\n");
+    switch(*option){
+        case 1:
+            printf("Register\n");
+            break;
+        case 2:
+            printf("Search\n");
+            break;
+        case 3:
+            printf("Exit\n");
+            break;
+        case 4:
+            printf("Extra\n");
+            break;
+        default:
+            printf("Invalid option\n");
+            break;
     }
 }

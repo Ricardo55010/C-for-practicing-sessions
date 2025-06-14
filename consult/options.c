@@ -1,7 +1,7 @@
 #include"options.h"
 void doSearch(int * currentPersons, Person * p){
-    numSteps++;
     char name[20];
+    numSteps++;
     printf("Looking for the name: ");
     scanf("%s",&name);
     //iterate through the pointer to show all the names
