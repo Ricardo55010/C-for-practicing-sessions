@@ -10,7 +10,8 @@
 			"menu.h": "c",
 			"options.h": "c",
 			"stdlib.h": "c",
-			"persons.h": "c"
+			"persons.h": "c",
+			"stdio.h": "c"
 		}
 	}
 }

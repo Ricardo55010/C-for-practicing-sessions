@@ -8,7 +8,7 @@
 enum option{REGISTER = 1,SEARCH = 2,EXIT = 3,EXTRA = 4};
 int numSteps = 0;
 const int numOptions = 4;
-int main(){
+int main(int argc, char *argv[]) {
     //initilization of variables
     int option = 0;
     int maxPersons = 1;
@@ -18,8 +18,16 @@ int main(){
     char name[20];
     //loop to execute the menu
     if(p == NULL) {
+        if(strcmp(argv[1],"-f") == 0){
+            while(p==NULL){
+                printf("Retrying to allocate memory\n");
+                p = calloc(maxPersons,sizeof(Person));
+            }
+        }
+        else{
         printf("Memory error\n");
         return 1;
+        }
     }
     do{
         printMenu();

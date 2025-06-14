@@ -24,3 +24,7 @@ Actions taken so far: 2
 Actions taken so far: 3
 Actions taken so far: 4
 Actions taken so far: 0
+Actions taken so far: 0
+Actions taken so far: 1
+Actions taken so far: 1
+Actions taken so far: 0
