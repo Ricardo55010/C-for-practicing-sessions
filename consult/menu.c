@@ -1,7 +1,12 @@
 #include"menu.h"
 inline void printMenu(){
+    time_t t = time(NULL);
+    struct tm *tm = localtime(&t);
     //print the first part of the menu
+    printf("***********************************************************\n");
     printf("Welcome to our registration system, please choose an option\n");
+    printf("Current time: %s\n",asctime(tm));
+    printf("***********************************************************\n");
     printf("1- Register\n2- Search\n3- Exit\n4- Extra\n");
 }
 
