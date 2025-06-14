@@ -2,13 +2,13 @@
 #include"menu.h"
 #include"options.h"
 
-int numSteps = 0;
+register int numSteps = 0;
 int main(){
     printf("Steps taken so far: %d\n",numSteps);
     //initilization of variables
-    int option = 0;
-    int maxPersons = 1;
-    Person * p = calloc(maxPersons,sizeof(Person));
+    register int option = 0;
+    register int maxPersons = 1;
+    register * p = calloc(maxPersons,sizeof(Person));
     int currentPersons = 0;
     char name[20];
     //loop to execute the menu
