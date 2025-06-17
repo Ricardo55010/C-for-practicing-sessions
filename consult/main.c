@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include"menu.h"
 #include"options.h"
+#include"calendar.h"
 #ifndef MAXSTEPS
 #define MAXSTEPS 10
 #endif
@@ -14,6 +15,20 @@ int main(int argc, char *argv[]) {
     int maxPersons = 1;
     Person * p = calloc(maxPersons,sizeof(Person));
     FILE * fp = fopen("log.txt","a+");
+    calendar* c = calloc(1,sizeof(calendar));
+    c->days = (day**) calloc(1,sizeof(day*));
+    for(int i = 0; i < 4; i++){
+        c->days[i] = calloc(7,sizeof(day));
+        for(int j = 0; j < 7; j++){
+            c->days[i][j].numDay = i;
+        }
+    }
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 7; j++){
+            printf("%d ",c->days[i][j].numDay);
+        }
+        printf("\n");
+    }
     int currentPersons = 0;
     char name[20];
     //loop to execute the menu
