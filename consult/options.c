@@ -12,6 +12,10 @@ void doSearch(int * currentPersons, Person * p){
             printf("<----This is the person\n");
             printf("it has %d characters\n",strlen(p[i].name));
             printf("it has %d bytes\n",sizeof(p[i].name));
+            if(p[i].parent != NULL){
+                printf("it has a parent\n");
+                printf("the parent name is %s\n",p[i].parent->name);
+            }
         }
         printf("\n");
     }
@@ -20,6 +24,7 @@ void doSearch(int * currentPersons, Person * p){
 };
 
 void doRegister(Person * p, int* maxPersons, int* currentPersons){
+    int haveParent = 0;
     numSteps++;
     //check if the array is full
     if(*currentPersons == *maxPersons){
@@ -30,6 +35,14 @@ void doRegister(Person * p, int* maxPersons, int* currentPersons){
     printf("Register the name:"); 
     scanf("%s",&((p+*currentPersons)->name));
     printf("The name %s was registered\n",(p + *currentPersons)->name);
+    printf("do you have a parent? 1 for yes, 0 for no: ");
+    scanf("%d",&haveParent);
+    if(haveParent == 1){
+        printf("Register the parent name:"); 
+        (p+*currentPersons)->parent = calloc(1,sizeof(Person));
+        scanf("%s",&((p+*currentPersons)->parent->name));
+        printf("The name %s was registered\n",((p+*currentPersons)->parent)->name);
+    }
     //increase current number of persons in the pointer
     (*currentPersons) ++;
     printf("current persons: %d\n",*currentPersons);
