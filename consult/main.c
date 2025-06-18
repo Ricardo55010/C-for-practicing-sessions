@@ -9,18 +9,28 @@
 enum option{REGISTER = 1,SEARCH = 2,EXIT = 3,EXTRA = 4};
 int numSteps = 0;
 const int numOptions = 4;
+
+char functionThatReceivesFunctionPointer(char(*functionToBeSent)(int,char)){
+    return functionToBeSent(1,'a');
+}
+char functionToBeSent(int input1,char input2){
+    return input1 + input2;
+} 
+
 int main(int argc, char *argv[]) {
     //initilization of variables
     int option = 0;
     int maxPersons = 1;
+    char returnOfFunction = functionThatReceivesFunctionPointer(functionToBeSent);
+    printf("argc: %c\n",returnOfFunction);
     Person * p = calloc(maxPersons,sizeof(Person));
     FILE * fp = fopen("log.txt","a+");
     calendar* c = calloc(1,sizeof(calendar));
-    c->days = (day**) calloc(1,sizeof(day*));
+    c->days = (day**) calloc(4,sizeof(day*));
     for(int i = 0; i < 4; i++){
         c->days[i] = calloc(7,sizeof(day));
         for(int j = 0; j < 7; j++){
-            c->days[i][j].numDay = i;
+            c->days[i][j].numDay = j+1;
         }
     }
     for(int i = 0; i < 4; i++){
