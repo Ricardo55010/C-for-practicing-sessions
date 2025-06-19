@@ -9,6 +9,17 @@
 enum option{REGISTER = 1,SEARCH = 2,EXIT = 3,EXTRA = 4};
 int numSteps = 0;
 const int numOptions = 4;
+union unionExample{
+    int registerOption;
+    char searchOption;
+}
+;
+
+struct MyFlags {
+    unsigned int a : 1; // only 1 bit
+    unsigned int b : 1; // only 1 bit
+    unsigned int c : 2; // only 2 bit
+};
 
 char functionThatReceivesFunctionPointer(char(*functionToBeSent)(int,char)){
     return functionToBeSent(1,'a');
@@ -21,6 +32,15 @@ int main(int argc, char *argv[]) {
     //initilization of variables
     int option = 0;
     int maxPersons = 1;
+    union unionExample unionex;
+    unionex.searchOption = 'a';
+    printf("%c\n",unionex.searchOption);
+    unionex.registerOption = 1;
+    printf("%d\n",unionex.registerOption);
+    struct MyFlags flags = {0, 1, 3};
+    printf("%u\n",flags.a);
+    printf("%u\n",flags.b);
+    printf("%u\n",flags.c);
     char returnOfFunction = functionThatReceivesFunctionPointer(functionToBeSent);
     printf("argc: %c\n",returnOfFunction);
     Person * p = calloc(maxPersons,sizeof(Person));
